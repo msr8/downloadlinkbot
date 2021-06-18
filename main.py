@@ -7,7 +7,7 @@ redditvideodl_format = 'https://redditvideodl.com/dl.php?url=https://www.reddit.
 def give_reply(url):
     reply = f'''#[Download Link]({redditsave_format + url})
 #[Alternate Link]({redditvideodl_format + url})
-^(Beep beep boop boop. I am a bot. I just automatically give download links cause I download from this subreddit a LOT and am too lazy to do the whole procedure when I can just scroll down the comments ya know. View my source code On [GitHub here](github.com/stupid-melon/downloadlinkbot))'''
+^(Beep beep boop boop. I am a bot. I just automatically give download links cause I download from this subreddit a LOT and am too lazy to do the whole procedure when I can just scroll down the comments ya know. View my source code On [GitHub here](https://github.com/stupid-melon/downloadlinkbot))'''
     
     return reply
 
