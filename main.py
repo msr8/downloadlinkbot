@@ -1,4 +1,5 @@
 from config import *
+import time as t
 import praw
 redditsave_format = 'https://redditsave.com/info?url='
 redditvideodl_format = 'https://redditvideodl.com/dl.php?url=https://www.reddit.com'
@@ -22,14 +23,19 @@ user_agent = 'Whatever')
 subreddit = reddit.subreddit('startledcats')
 
 
-print('\nDownload bot is up\n')
-
-for post in subreddit.stream.submissions(skip_existing = True):
+while True:
     try:
-        post_type = post.post_hint
-    except:
-        post_type = 'error'
+        print(f'\nDownload bot is up at {t.asctime()}\n')
 
-    if post_type == 'hosted:video':
-        post.reply( give_reply(post.permalink) )
+        for post in subreddit.stream.submissions(skip_existing = True):
+            try:
+                post_type = post.post_hint
+            except:
+                post_type = 'error'
+
+            if post_type == 'hosted:video':
+                post.reply( give_reply(post.permalink) )
+    except:
+        print(f'error at {t.asctime()} Restarting in 5 minutes')
+        t.sleep(300)
 
